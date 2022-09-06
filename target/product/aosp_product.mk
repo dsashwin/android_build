@@ -20,7 +20,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_product.mk)
 
 # Default AOSP sounds
 ifeq ($(LINEAGE_BUILD),)
+ifneq ($(BUILD_VANILLA), true)
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
+endif
 else
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackage14.mk)
 endif
